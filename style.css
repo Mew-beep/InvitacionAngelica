@@ -1,0 +1,613 @@
+/* Variables y Configuración Base */
+:root {
+    --primary-color: #d4af37; /* Dorado elegante */
+    --secondary-color: #f8f1e5;
+    --bg-color: #121212; /* Fondo oscuro (modo oscuro por defecto) */
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --font-heading: 'Playfair Display', serif;
+    --font-name: 'Love Light';
+    --font-welcome: 'Italianno';
+    --font-body: 'Lato', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    overflow-x: hidden;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Estándar */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+.names {
+    font-family: var(--font-name);
+    font-size: 15rem !important;
+    font-weight: 400;
+    font-style: normal;
+
+   
+
+}
+
+.event-type{
+    font-family: var(--font-welcome);
+    font-weight: 400;
+    font-size: 4rem;
+}
+
+.welcome-message {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.ornament {
+    width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    width: 50px; height: 50px;
+    border: 3px solid var(--glass-border);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Pantalla de Bienvenida */
+#welcome-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(14, 13, 13, 0.6), rgba(14, 13, 13, 0.6)), url('https://images.pexels.com/photos/34779315/pexels-photo-34779315.jpeg') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+.welcome-content h1 {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin: 10px 0 20px;
+}
+.welcome-content p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.parents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.parent {
+    font-family: var(--font-name);
+    font-size: 4rem !important;
+    text-align: center;
+}
+
+.names,
+.parent p {
+    background: linear-gradient(
+        180deg,
+        #fff8c6 0%,
+        #f7d96b 20%,
+        #d4af37 45%,
+        #b8860b 65%,
+        #fff1a8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.dedicatoria-texto{
+    font-family: var(--font-heading);
+}
+.dedicatoria-final{
+    font-family: var(--font-name);
+    font-size: 2.5rem !important;
+    text-align: center;
+}
+
+
+#portrait {
+    padding: 40px 20px;
+}
+
+.portrait-frame {
+    width: 320px;
+    height: 420px;
+    margin: 0 auto;
+
+    padding: 8px;
+
+    background: linear-gradient(
+        180deg,
+        #fff8c6 0%,
+        #f7d96b 20%,
+        #d4af37 45%,
+        #b8860b 65%,
+        #fff1a8 100%
+    );
+
+    border-radius: 50% / 38%;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.4),
+        0 0 40px rgba(212, 175, 55, 0.2);
+
+    position: relative;
+}
+
+
+
+/* Contenedor principal de la foto */
+.portrait-frame {
+    position: relative; /* Crucial para que los adornos se posicionen respecto a este div */
+    width: 280px;  /* Ajusta el ancho que desees */
+    height: 380px; /* Ajusta el alto que desees */
+    margin: 40px auto; /* Centra el marco y le da espacio arriba/abajo */
+}
+
+/* Tu imagen original, ahora con z-index para estar por encima del marco base */
+.portrait-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50% / 38%; /* Tu forma ovalada original */
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2; /* Mantiene la foto en la capa media */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); /* Sombra oscura para dar profundidad */
+}
+
+/* --- ADORNOS DORADOS --- */
+
+/* 1. Marco exterior dorado (Eco de tu forma ovalada) */
+.portrait-frame::before {
+    content: "";
+    position: absolute;
+    top: -15px;    /* Expande el marco 15px hacia afuera */
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+    border: 1.5px solid #d4af37; /* Color dorado clásico */
+    border-radius: 50% / 38%;    /* Sigue la misma proporción exacta de tu foto */
+    z-index: 1; /* Se coloca por detrás de la imagen */
+    opacity: 0.6; /* Un poco translúcido para ser sutil */
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 
+                0 0 15px rgba(212, 175, 55, 0.3); /* Brillo dorado estilo neón suave */
+}
+
+
+
+/* Contenedor principal de la fecha */
+.fecha-elegante {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 45px;
+    font-family: var(--font-heading);
+    color: #e5c158;
+}
+
+.fecha-lateral {
+    font-size: 28px;
+    letter-spacing: 4px;
+    padding: 6px 0;
+    border-top: 2px solid #e5c158;
+    border-bottom: 2px solid #e5c158;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.fecha-numero {
+    font-size: 150px;
+    font-weight: 800;
+    line-height: 1; 
+    margin: 0;
+    transform: translateY(-25px); 
+}
+
+
+.mensaje-invitacion {
+    text-align: center;
+    color: #dfdfd0; /* Un color hueso/champagne para que sea suave a la vista */
+    font-family: 'Playfair Display', serif; /* Tu fuente elegante */
+    font-size: 20px;
+    font-style: italic; /* Letra cursiva para darle emoción */
+    max-width: 80%; /* Para que no se estire demasiado a los lados */
+    margin: 30px auto; /* Centrado y con espacio arriba y abajo */
+    line-height: 1.6;
+}
+
+
+/* El contenedor oculto por defecto */
+.datos-ocultos {
+    display: none; /* Oculta el elemento completamente */
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(229, 193, 88, 0.05); /* Un fondo dorado súper transparente */
+    border: 1px solid rgba(229, 193, 88, 0.3); /* Borde dorado sutil */
+    border-radius: 10px;
+    color: #dfdfd0;
+}
+
+/* La clase que JS añadirá para mostrar el contenedor */
+.datos-ocultos.visible {
+    display: block;
+    animation: aparecerSuave 0.5s ease-out forwards;
+}
+
+/* Animación para que aparezca deslizándose un poco hacia arriba */
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para el botón de copiar (opcional pero muy útil) */
+.btn-copiar {
+    margin-top: 15px;
+    background: transparent;
+    color: #e5c158;
+    border: 1px solid #e5c158;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.btn-copiar:hover {
+    background: #e5c158;
+    color: #1a1a1a;
+}
+
+
+/* Botones */
+.btn-premium, .btn-outline {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-premium {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+.btn-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Contenido Principal */
+.hidden { display: none !important; }
+main { position: relative; padding-bottom: 50px; }
+
+/* Efectos visuales - Partículas */
+#particles-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1;
+}
+.particle {
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* Botón flotante música */
+.floating-btn {
+    position: fixed; bottom: 20px; right: 20px;
+    background: var(--primary-color); border: none;
+    width: 50px; height: 50px; border-radius: 50%;
+    color: var(--bg-color); font-size: 1.2rem;
+    cursor: pointer; z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Secciones Genéricas */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.icon-large { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+.cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.cards-container .glass-card { flex: 1; min-width: 280px; }
+
+/* Hero Parallax */
+#hero {
+    min-height: 80vh;
+    display: flex; justify-content: center; align-items: center;
+    background: url('https://images.pexels.com/photos/16018715/pexels-photo-16018715.jpeg') center/cover fixed;
+    border-radius: 0 0 50px 50px;
+}
+.hero-text {
+    background: rgba(0,0,0,0.5); padding: 40px; border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+.hero-text h2 { font-size: 3rem; color: var(--primary-color); }
+.frase { font-style: italic; font-size: 1.2rem; margin-top: 15px; }
+
+/* Countdown */
+.countdown-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.time-box {
+    background: var(--glass-bg); border: 1px solid var(--primary-color);
+    padding: 20px; border-radius: 15px; width: 100px;
+}
+.time-box span { font-size: 2.5rem; font-family: var(--font-heading); color: var(--primary-color); }
+.time-box p { font-size: 0.9rem; text-transform: uppercase; }
+
+/* Galería Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    height: 300px; background-size: cover; background-position: center;
+    border-radius: 15px; transition: transform 0.3s ease;
+}
+.gallery-item:hover { transform: scale(1.05); }
+
+/* Formulario RSVP */
+form { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; text-align: left;}
+input[type="text"], input[type="number"] {
+    width: 100%; padding: 15px; border-radius: 10px;
+    border: 1px solid var(--glass-border); background: rgba(255,255,255,0.1);
+    color: var(--text-light); font-family: var(--font-body); outline: none;
+}
+input::placeholder { color: #aaa; }
+.radio-group { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+.whatsapp-btn { background: #25D366; color: white; margin-top: 15px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+.whatsapp-btn:hover { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+.gift-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+/* Animaciones de Scroll */
+.fade-in { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+
+
+.mariposa {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none; /* Para que no estorben si alguien quiere tocar la foto */
+    filter: drop-shadow(0px 4px 6px rgba(229, 193, 88, 0.4)); /* Brillo dorado suave */
+}
+
+/* La imagen es la que hace el movimiento de aleteo rápido */
+.mariposa img {
+    width: 100%;
+    animation: aleteo 0.3s ease-in-out infinite alternate;
+}
+
+/* --- Posiciones Específicas --- */
+
+.mariposa-1 {
+    width: 45px;
+    top: -10px;
+    left: -20px;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.mariposa-2 {
+    width: 30px;
+    bottom: 20px;
+    right: -25px;
+    animation: flotar-inverso 5s ease-in-out infinite;
+}
+
+.mariposa-2 img {
+    animation-duration: 0.25s;
+    animation-delay: 0.1s;
+}
+
+/* --- Animaciones Keyframes --- */
+
+/* Simula las alas cerrándose y abriéndose (Efecto 3D) */
+@keyframes aleteo {
+    0% {
+        transform: scaleX(1); 
+    }
+    100% {
+        transform: scaleX(0.1);
+    }
+}
+
+/* Movimiento de volar y flotar suavemente */
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* Movimiento de volar para la segunda mariposa (diferente ritmo) */
+@keyframes flotar-inverso {
+    0%, 100% {
+        transform: translateY(0px) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-20deg);
+    }
+}
+
+
+/* --- Estilos base para el polvo de hadas --- */
+.destello {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #e5c158;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #e5c158, 0 0 10px rgba(229, 193, 88, 0.8);
+    opacity: 0;
+    z-index: -1;
+    /* La duración y el retraso se los daremos dinámicamente con JS */
+    animation: polvoCayendo linear infinite; 
+}
+
+@keyframes polvoCayendo {
+    0% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(35px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* --- Footer Elegante --- */
+.footer-elegante {
+    text-align: center;
+    padding: 40px 20px 30px;
+    margin-top: 50px;
+    position: relative;
+    /* Un pequeño degradado oscuro de fondo para que se funda bien con el final de la página */
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0) 100%);
+}
+
+/* Línea que se difumina en las orillas */
+.linea-dorada {
+    width: 50%;
+    height: 1px;
+    margin: 0 auto 20px auto;
+    background: linear-gradient(90deg, transparent, #e5c158, transparent);
+    opacity: 0.6;
+}
+
+/* Estilo para "Hecho con amor" */
+.texto-amor {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #dfdfd0; /* Tu tono hueso/champagne */
+    margin-bottom: 5px;
+    font-style: italic; /* Para darle ese toque cursivo romántico */
+}
+
+/* El corazón con su animación */
+.corazon-latido {
+    color: #e5c158; /* Dorado */
+    font-size: 16px;
+    margin-left: 5px;
+    animation: latido 1.5s infinite;
+}
+
+/* Estilo para el nombre y el año */
+.firma-footer {
+    font-family: 'Montserrat', sans-serif; /* Usamos una fuente sin patines para contrastar */
+    font-size: 12px;
+    color: #a0a095; /* Un tono un poco más apagado para que no quite protagonismo */
+    letter-spacing: 3px; /* Letras más separadas para que se vea moderno */
+    text-transform: uppercase; /* Todo en mayúsculas */
+}
+
+/* Animación del latido (simula un corazón de verdad con dos pulsos rápidos) */
+@keyframes latido {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.2); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.2); }
+    40%, 100% { transform: scale(1); }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .welcome-content h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    #hero { min-height: 60vh; }
+    .hero-text h2 { font-size: 2rem; }
+}

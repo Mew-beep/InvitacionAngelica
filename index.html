@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta property="og:title" content="¡Nuestra Boda! Sofía & Alejandro">
+    <meta property="og:description"
+        content="Te invitamos a celebrar este día tan especial con nosotros. Haz clic para abrir tu invitación.">
+    <meta property="og:image" content="URL_DE_UNA_FOTO_BONITA.jpg">
+    <meta property="og:url" content="EL_ENLACE_DE_TU_INVITACION">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Love+Light&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h3 class="event-type">Mis XV años</h3>
+            <img src="images/ornamento_recorte.png" alt="Ornamento" class="ornament">
+            <h1 class="names">Angelica</h1>
+            <img src="images/ornamento_recorte.png" alt="Ornamento" class="ornament">
+            <p class="welcome-message">Con la bendición de Dios y de mis padres, te invito a celebrar conmigo este día
+                tan especial.</p>
+            <button id="open-btn" class="btn-premium">Abrir Invitación <i
+                    class="fa-solid fa-envelope-open-text"></i></button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Prelude%20in%20C%20-%20BWV%20846.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <main id="main-content" class="hidden">
+        <button id="music-toggle" class="floating-btn"><i class="fa-solid fa-music"></i></button>
+
+        <div id="particles-container"></div>
+
+        <section id="hero" class="glass-section parallax">
+            <div class="hero-text fade-in">
+                <h2>¡Mis XV Años!</h2>
+                <p class="frase">"A lo largo de estos quince años he vivido momentos inolvidables, aprendido grandes
+                    lecciones y compartido innumerables sonrisas. Hoy celebro con ilusión y alegría una nueva etapa en
+                    mi vida, llena de sueños, esperanza y recuerdos que atesoraré por siempre."</p>
+            </div>
+        </section>
+
+        <section id="gifts" class="fade-in">
+            <div class="glass-card full-width">
+                <h2 class="section-title">A mis padres</h2>
+                <div class="parents">
+                    <div class="parent">
+                        <p>Javier Hernández</p>
+                    </div>
+                    <div class="parent">
+                        <p>Maribel Hernández</p>
+                    </div>
+                </div>
+                <p class="dedicatoria-texto">
+                    En este día tan especial, celebro mis XV años,<br>
+                    pero también celebro el amor, la paciencia y el esfuerzo de mis padres.<br>
+                    Gracias por darme alas para soñar y raíces para crecer.<br><br>
+
+                </p>
+                <p class="dedicatoria-final">Los amo infinitamente.</p>
+            </div>
+        </section>
+
+
+        <section id="portrait" class="fade-in">
+            <div class="fecha-elegante">
+                <div class="fecha-lateral">
+                    <span>SÁBADO</span>
+                </div>
+                <div class="fecha-numero">
+                    1
+                </div>
+                <div class="fecha-lateral">
+                    <span>AGOSTO</span>
+                </div>
+            </div>
+            <div class="portrait-frame">
+                <div class="mariposa mariposa-1">
+                    <img src="images/mariposa.png" alt="Mariposa decorativa">
+                </div>
+                <div class="mariposa mariposa-2">
+                    <img src="images/mariposa.png" alt="Mariposa decorativa">
+                </div>
+                <img src="images/fotoperfil.png" alt="Angelica" class="portrait-image">
+            </div>
+
+            <div class="mensaje-invitacion">
+                <p>Me llena de emoción invitarte a ser parte de una noche inolvidable. <br>
+                    Celebremos juntos la alegría, los sueños y la magia de mis XV años.</p>
+            </div>
+        </section>
+
+
+
+        <section id="details" class="fade-in">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="cards-container">
+                <div class="glass-card">
+                    <i class="fa-solid fa-church icon-large"></i>
+                    <h3>Ceremonia</h3>
+                    <p>Fecha: Sábado, 1 de agosto de 2026</p>
+                    <p>Hora: 4:00 PM</p>
+                    <p>Lugar: Santísimo Nombre de Jesús</p>
+                    <a href="https://maps.app.goo.gl/Z8hhxAkp8z7Qgg7Z9" class="btn-outline">Ver en Mapa</a>
+                </div>
+                <div class="glass-card">
+                    <i class="fa-solid fa-champagne-glasses icon-large"></i>
+                    <h3>Recepción</h3>
+                    <p>Fecha: Sábado, 1 de Agosto 2026</p>
+                    <p>Hora: 19:00 hrs</p>
+                    <p>Lugar: Altum Eventos</p>
+                    <a href="https://maps.app.goo.gl/xMATpLXBVKSq3hiG8" class="btn-outline">Ver en Mapa</a>
+                </div>
+            </div>
+        </section>
+        <section id="countdown-section" class="fade-in">
+            <h2 class="section-title">Faltan</h2>
+            <div class="countdown-container">
+                <div class="time-box"><span id="days">00</span>
+                    <p>Días</p>
+                </div>
+                <div class="time-box"><span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-box"><span id="minutes">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="time-box"><span id="seconds">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gifts" class="fade-in">
+            <div class="glass-card full-width">
+                <h2 class="section-title">Mesa de Regalos</h2>
+                <i class="fa-solid fa-gift icon-large"></i>
+                <p>El mejor regalo es tu presencia, pero si deseas tener un detalle con nosotros:</p>
+                <div class="gift-buttons">
+                    <button class="btn-outline" onclick="mostrarDatos()">Cuenta Bancaria</button>
+                </div>
+
+                <div id="datos-cuenta" class="datos-ocultos">
+                    <p><strong>Banco:</strong> BBVA</p>
+                    <p><strong>Titular:</strong> Aracely Hernández</p>
+                    <p><strong>Número de Cuenta:</strong> 1234 5678 9012</p>
+                    <p><strong>CLABE:</strong> 012 345 67890 12345 6</p>
+                    <button class="btn-copiar" onclick="copiarCuenta()">Copiar CLABE</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-elegante fade-in">
+    <div class="linea-dorada"></div>
+    
+    <p class="texto-amor">
+        Hecho con amor <i class="fa-solid fa-heart corazon-latido"></i>
+    </p>
+    
+    <p class="firma-footer">Angelica &copy; 2026</p>
+</footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

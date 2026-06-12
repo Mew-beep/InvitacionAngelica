@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5.5 Sistema de Polvo de Hadas para las Mariposas
     function crearPolvoDeHadas() {
         const mariposas = document.querySelectorAll('.mariposa');
-        const cantidadDestellos = 5; // Cuántos brillos caerán de cada mariposa
+        const cantidadDestellos = 7;
 
         mariposas.forEach(mariposa => {
             for (let i = 0; i < cantidadDestellos; i++) {
@@ -159,19 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 let delay = Math.random() * 2;      // Retraso entre 0 y 2 segundos
                 let duration = Math.random() * 1 + 1.5; // Duración de caída entre 1.5s y 2.5s
 
-                // Aplicar los valores al estilo del destello
                 destello.style.left = `${left}%`;
                 destello.style.top = `${top}%`;
                 destello.style.animationDelay = `${delay}s`;
                 destello.style.animationDuration = `${duration}s`;
 
-                // Inyectar el destello dentro de la mariposa
                 mariposa.appendChild(destello);
             }
         });
     }
-
-    // Ejecutamos la función inmediatamente al cargar
     crearPolvoDeHadas();
 
   rsvpForm.addEventListener("submit", (e) => {
@@ -214,25 +210,3 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) return false; // Ctrl+U
   };
 });
-
-window.mostrarDatos = function () {
-  var contenedor = document.getElementById("datos-cuenta");
-  if (contenedor) {
-    // Si ya tiene la clase 'visible', se la quitamos. Si no, se la ponemos.
-    contenedor.classList.toggle("visible");
-  }
-};
-
-// 8. Función extra: Copia el número al portapapeles
-window.copiarCuenta = function () {
-  var clabe = "01234567890123456"; // Pon tu clabe real aquí sin espacios
-  navigator.clipboard.writeText(clabe).then(
-    function () {
-      alert("¡CLABE copiada al portapapeles!");
-    },
-    function () {
-      alert("Hubo un error al copiar.");
-    },
-  );
-};
-

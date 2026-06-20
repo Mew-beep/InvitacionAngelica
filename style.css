@@ -237,7 +237,6 @@ h1, h2, h3 {
 }
 
 /* Botones */
-.btn-premium,
 .btn-outline {
   padding: 15px 30px;
   font-size: 1rem;
@@ -248,17 +247,7 @@ h1, h2, h3 {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.btn-premium {
-  background: var(--primary-color);
-  color: var(--bg-color);
-  border: none;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-}
-.btn-premium:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-}
+
 .btn-outline {
   background: transparent;
   color: var(--primary-color);
@@ -297,6 +286,38 @@ main {
   opacity: 0.5;
   animation: floatUp linear infinite;
 }
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    
+    animation: bounce 2s infinite;
+    transition: opacity 0.5s ease; /* Transición suave al desaparecer */
+    z-index: 100;
+}
+
+.scroll-indicator.oculto {
+    opacity: 0;
+    pointer-events: none; /* Evita que el usuario pueda hacer click en él mientras desaparece */
+}
+
+.scroll-indicator i {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-10px) translateX(-50%); }
+    60% { transform: translateY(-5px) translateX(-50%); }
+}
+
 @keyframes floatUp {
   0% {
     transform: translateY(100vh) scale(0);
@@ -582,45 +603,74 @@ section {
   }
 }
 
+@keyframes brillo-pulsante {
+  0% {
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.2), 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    /* Aquí es donde brilla intensamente */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.2), 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+}
+
+.btn-premium {
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  font-weight: bold;
+  /* Aplicamos la animación */
+  animation: brillo-pulsante 2s ease-in-out infinite;
+  /* Mantenemos tus otras propiedades */
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Opcional: quitar la animación al poner el mouse encima para que se sienta sólido */
+.btn-premium:hover {
+  animation: none;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 1);
+  transform: translateY(-3px);
+}
 
 /* --- Ajustes Responsivos Profesionales --- */
-
 @media (max-width: 768px) {
-    /* 1. Reducción de fuentes para evitar desbordamiento */
-    .names { font-size: 6rem !important; } /* De 15rem a 6rem */
+    .names { font-size: 6rem !important; }
     .event-type { font-size: 2.5rem !important; }
     .parent { font-size: 2.5rem !important; }
     .welcome-message { font-size: 2rem; }
 
-    /* 2. Ajuste de contenedores */
     .portrait-frame {
-        width: 260px; /* Un poco más estrecho para móviles */
+        width: 260px;
         height: 340px;
     }
     
-    .ornament { width: 90%; max-width: 300px; } /* Ajuste de adorno principal */
+    .ornament { width: 90%; max-width: 300px; }
     
-    .parents { gap: 20px; flex-direction: column; } /* Poner nombres de padres en vertical */
+    .parents { gap: 20px; flex-direction: column; }
     
-    /* 3. Ajustes de Fecha */
     .fecha-numero { font-size: 70px; }
     .fecha-lateral { font-size: 16px; padding: 4px 10px; }
     
-    /* 4. Countdown (Contador) */
     .time-box { width: 75px; padding: 10px; }
     .time-box span { font-size: 1.5rem; }
     
-    /* 5. Secciones */
     section { padding: 40px 15px; }
     .section-title { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
-    /* Ajustes finales para pantallas muy pequeñas */
     .names { font-size: 4.5rem !important; }
     .portrait-frame { width: 220px; height: 280px; }
     
-    /* Evitar que las tarjetas hagan scroll horizontal */
     .cards-container { gap: 10px; }
     .glass-card { margin: 10px 0; }
 }

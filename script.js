@@ -210,3 +210,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) return false; // Ctrl+U
   };
 });
+
+window.addEventListener('scroll', function() {
+    const indicador = document.getElementById('scroll-indicator');
+    
+    // Si el usuario ha hecho scroll más de 50px, ocultamos el indicador
+    if (window.scrollY > 50) {
+        indicador.classList.add('oculto');
+    } else {
+        // Opcional: si vuelve a subir al tope, que aparezca de nuevo
+        indicador.classList.remove('oculto');
+    }
+});

@@ -621,9 +621,7 @@ section {
   color: var(--bg-color);
   border: none;
   font-weight: bold;
-  /* Aplicamos la animación */
   animation: brillo-pulsante 2s ease-in-out infinite;
-  /* Mantenemos tus otras propiedades */
   padding: 15px 30px;
   font-size: 1rem;
   font-family: var(--font-body);
@@ -632,9 +630,11 @@ section {
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 20px;
+  display: inline-block;
+  will-change: box-shadow;
 }
 
-/* Opcional: quitar la animación al poner el mouse encima para que se sienta sólido */
 .btn-premium:hover {
   animation: none;
   box-shadow: 0 0 30px rgba(212, 175, 55, 1);

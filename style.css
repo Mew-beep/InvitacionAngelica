@@ -122,6 +122,8 @@ h1, h2, h3 {
   font-size: 1.2rem;
   letter-spacing: 2px;
   margin-bottom: 30px;
+  overflow: visible !important;
+  padding: 20px;
 }
 
 .parents {

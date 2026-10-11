@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Quitar el Loader inicial
   const loader = document.getElementById("loader");
   setTimeout(() => {
     loader.style.opacity = "0";
     setTimeout(() => (loader.style.display = "none"), 500);
   }, 1500);
 
-  // 2. Lógica del Botón "Abrir Invitación"
   const openBtn = document.getElementById("open-btn");
   const welcomeScreen = document.getElementById("welcome-screen");
   const mainContent = document.getElementById("main-content");
@@ -15,11 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlaying = false;
 
   openBtn.addEventListener("click", () => {
-    // Transición de salida hacia arriba estilo sobre
     welcomeScreen.style.transform = "translateY(-100vh)";
     welcomeScreen.style.opacity = "0";
 
-    // Mostrar el contenido principal
     mainContent.classList.remove("hidden");
 
     bgMusic.volume = 0;
@@ -31,11 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         isPlaying = true;
         musicToggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
     let fadeIn = setInterval(() => {
-                if (bgMusic.volume < 0.8) { // Mientras no llegue casi al máximo
-                    bgMusic.volume += 0.05;  // Sube el volumen un 5%
+                if (bgMusic.volume < 0.8) {
+                    bgMusic.volume += 0.05; 
                 } else {
-                    bgMusic.volume = 0.9;      // Lo asegura en 100%
-                    clearInterval(fadeIn);   // Detiene el cronómetro
+                    bgMusic.volume = 0.9;   
+                    clearInterval(fadeIn);
                 }
             }, 300);  
     })
@@ -45,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ),
       );
 
-    // Iniciar sistema de partículas
     createParticles();
 
     setTimeout(() => {
@@ -83,8 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 4. Cuenta Regresiva
   // Cambia esta fecha a la de tu evento (Año, Mes (0-11), Día, Hora, Minuto)
-  // Ejemplo: 15 de Noviembre de 2026 a las 16:00
-  const eventDate = new Date(2026, 7, 1, 19, 0, 0).getTime();
+  const eventDate = new Date(2027, 1, 13, 19, 0, 0).getTime();
 
   const updateCountdown = setInterval(() => {
     const now = new Date().getTime();
@@ -102,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("days").innerText = days
       .toString()
@@ -111,9 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .toString()
       .padStart(2, "0");
     document.getElementById("minutes").innerText = minutes
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("seconds").innerText = seconds
       .toString()
       .padStart(2, "0");
   }, 1000);
